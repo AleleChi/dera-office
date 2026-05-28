@@ -117,7 +117,8 @@ export default function Onboarding() {
     }
   };
 
-  const canProceedCompany = data.companyName.trim() !== '' && data.industry && data.teamSize;
+  // FIX 1: !! coercion ensures this is always boolean, not string | false
+  const canProceedCompany = data.companyName.trim() !== '' && !!data.industry && !!data.teamSize;
   const canProceedRole = data.roles.length > 0;
 
   return (
@@ -195,8 +196,9 @@ export default function Onboarding() {
                 )}
 
                 {currentStep === 3 && (
+                  // FIX 2: provide itemType default so the prop type is satisfied
                   <InitialDataStep
-                    data={data}
+                  data={{ ...data, itemType: (data as any).itemType ?? 'inventory' }}
                     onUpdate={updateField}
                     onNext={handleNext}
                     onBack={handleBack}
