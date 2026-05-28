@@ -3,7 +3,7 @@ import { useDispatch, useSelector } from 'react-redux'
 import { motion } from 'framer-motion'
 import { logout } from '../app/store/slices/authSlice'
 import Layout from '../shared/layout/Layout'
-import { RootState } from '../app/store'
+import { RootState } from '../app/store/store'
 
 export default function Dashboard() {
   const navigate = useNavigate()
