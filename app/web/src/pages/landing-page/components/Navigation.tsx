@@ -1,7 +1,7 @@
 import { useNavigate } from 'react-router-dom'
 import { motion } from 'framer-motion'
 import { useSelector } from 'react-redux'
-import { RootState } from '../../app/store/store'
+import { RootState } from '../../../app/store/store'
 
 const navItems = [
   { label: 'Features', href: '#features' },
